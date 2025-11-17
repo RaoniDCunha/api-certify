@@ -34,10 +34,10 @@ jobs:
       - name: Install dependencies
         run: poetry install --no-root
 
-      # 5. Verifica o Linting (como você pediu)
+      # 5. Verifica o Linting (usando Ruff)
       - name: Run linting
-        run: poetry run task lint
+        run: poetry run ruff check . 
 
-      # 6. Executa os Testes (como você pediu)
+      # 6. Executa os Testes (usando Pytest)
       - name: Run tests
-        run: poetry run task test
+        run: poetry run pytest 
