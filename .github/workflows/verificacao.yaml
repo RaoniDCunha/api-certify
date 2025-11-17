@@ -1,0 +1,43 @@
+# Nome do workflow
+name: CI - Verificação de Lint e Testes
+
+# Define quando o workflow deve rodar
+on:
+  push:
+    branches: [ main ] # Rodar em commits para a branch 'main'
+  pull_request:
+    branches: [ main ] # Rodar também em pull requests para a 'main'
+
+jobs:
+  # Nome do "job" (trabalho)
+  build-and-test:
+    # Usar a versão mais recente do Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Baixa o seu código do repositório
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # 2. Configura o ambiente Python (use a versão que preferir)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' 
+
+      # 3. Instala o Poetry
+      - name: Install Poetry
+        run: |
+          pip install poetry
+
+      # 4. Instala as dependências do projeto (incluindo as de dev)
+      - name: Install dependencies
+        run: poetry install
+
+      # 5. Verifica o Linting (como você pediu)
+      - name: Run linting
+        run: poetry run task lint
+
+      # 6. Executa os Testes (como você pediu)
+      - name: Run tests
+        run: poetry run task test
