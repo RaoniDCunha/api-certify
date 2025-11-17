@@ -1,0 +1,35 @@
+# --- Ambientes Virtuais ---
+# Ignora o ambiente virtual criado pelo Poetry (ou venv, etc.)
+.venv/
+venv/
+env/
+*.env
+
+# --- Caches do Python ---
+# Ignora o cache de bytecode 
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Caches de Ferramentas de Teste ---
+# Ignora o cache do Pytest 
+.pytest_cache/
+.coverage
+
+# --- Configurações de IDE ---
+# Ignora pastas de configuração de editores como VSCode ou PyCharm
+.vscode/
+.idea/
+*.iml
+
+# --- Arquivos de Build/Distribuição ---
+# Ignora pacotes de distribuição que você possa criar
+dist/
+build/
+*.egg-info/
+
+# --- Arquivos específicos de SO ---
+# Ignora arquivos do macOS e Windows
+.DS_Store
+Thumbs.db

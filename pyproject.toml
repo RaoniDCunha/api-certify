@@ -1,0 +1,27 @@
+[project]
+name = "api-poetry-desafio"
+version = "0.1.0"
+description = "API de Gerenciamento de Voluntários"
+authors = [
+    {name = "drakkar95",email = "raonidutracunha@ymail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi (>=0.121.2,<0.122.0)",
+    "uvicorn[standard] (>=0.38.0,<0.39.0)",
+    "pydantic (>=2.12.4,<3.0.0)",
+    "email-validator (>=2.3.0,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.1,<10.0.0)",
+    "httpx (>=0.28.1,<0.29.0)",
+    "ruff (>=0.14.5,<0.15.0)"
+]
