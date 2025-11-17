@@ -30,9 +30,9 @@ jobs:
         run: |
           pip install poetry
 
-      # 4. Instala as dependências do projeto (incluindo as de dev)
+      # 4. Instala as dependências (mas não o projeto em si)
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --no-root
 
       # 5. Verifica o Linting (como você pediu)
       - name: Run linting
